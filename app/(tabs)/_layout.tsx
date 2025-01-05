@@ -1,19 +1,74 @@
+import React from "react";
 import { Tabs } from "expo-router";
+import { useColorScheme } from "react-native";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 const TabsLayout = () => {
+  const colorScheme = useColorScheme();
+
   return (
-    <Tabs>
+    <Tabs screenOptions={{ headerShown: false }}>
       <Tabs.Screen
-        name="tab_1"
-        options={{ headerTitle: "Tab 1", title: "Tab 1" }}
+        name="dashboard"
+        options={{
+          headerTitle: "Dashboard",
+          title: "Dashboard",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="signal" color={color} size={16} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="foodlog"
+        options={{
+          headerTitle: "Food Log",
+          title: "Food Logd",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="utensils" color={color} size={16} />
+          ),
+        }}
       />
       <Tabs.Screen
         name="index"
-        options={{ headerTitle: "Home", title: "Home" }}
+        options={{
+          headerTitle: "",
+          title: "",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5
+              name="plus-circle"
+              color={color}
+              size={32}
+              style={{ marginBottom: -10 }}
+            />
+          ),
+          tabBarShowLabel: false,
+        }}
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            // navigation.navigate("modal");
+          },
+        })}
       />
       <Tabs.Screen
-        name="tab_2/index"
-        options={{ headerTitle: "Tab 2", title: "Tab 2" }}
+        name="workouts/index"
+        options={{
+          headerTitle: "Workouts",
+          title: "Workouts",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="dumbbell" color={color} size={16} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          headerTitle: "Settings",
+          title: "Settings",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="user-cog" color={color} size={16} />
+          ),
+        }}
       />
     </Tabs>
   );

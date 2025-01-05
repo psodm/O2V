@@ -22,7 +22,7 @@ const HomePage = () => {
       <Link href="/tab_1" style={[styles.text, themeTextStyle]}>
         Go to Tab 1
       </Link>
-      <Pressable onPress={() => router.push("/tab_2")}>
+      <Pressable onPress={() => router.push("/tab_2")} pointerEvents="none">
         <Text style={[styles.text, themeTextStyle]}>Go to Tab 2</Text>
       </Pressable>
     </View>

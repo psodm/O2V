@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 
 const index = () => {
-  return <Text>Tab 2</Text>;
+  return <Text>Workouts</Text>;
 };
 
 export default index;
